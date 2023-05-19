@@ -1,0 +1,39 @@
+
+{% extends 'Shablon.html '%}
+{% load static %}
+{% block content %}
+       
+<section class="tm-section">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                    <div class="tm-blog-post">
+                        <h3 class="tm-gold-text">{{ blog.title }}</h3>
+                        <p>{{ blog.aftor }}</p>
+                        <img src="{{ blog.photo.url }}" alt="Image" class="img-fluid tm-img-post">
+                        
+                       <p>{{ blog.text}}</p>
+                    </div>
+                </div>
+                
+                    
+                <div class="row">
+                    {% for i in blogs %}
+                      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+  
+                          <div class="tm-content-box">
+                          
+                              <img src="{{ i.photo.url }}" alt="Image" style="width:200px;height:120px;">
+                              <h4 class="tm-margin-b-20 tm-gold-text">{{ i.title }}</h4>
+                              <p class="tm-margin-b-20">Bugunning manosi </p>
+                              <a href="{% url 'blog' i.id %}" class="tm-btn text-xs-center">Mavzuni to'liq ko'rish</a> <br><br>   
+                          </div>  
+  
+                      </div>
+  
+                     
+                        {% endfor %}
+                 
+ 
+{% endblock content%}
